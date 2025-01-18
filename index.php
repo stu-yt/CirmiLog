@@ -1,30 +1,39 @@
 <?php
 require 'forum.php';
 
+if (basename($_SERVER['PHP_SELF']) == 'index.php' && empty($_SERVER['QUERY_STRING'])) {
+    // Redirect to the default URL with status=open
+    header("Location: index.php?status=open");
+    exit; // Make sure the script stops after the redirect
+}
+
 $status = $_GET['status'] ?? 'open';
 $posts = get_posts($status);
 
 include 'templates/header.php';
 ?>
+<script src="test.js"></script>
 
 <div class="container">
     <h1>Projects</h1>
-    <nav class="typeSelector">
-        <a href="index.php?status=open">Open Posts</a> 
-        <a href="index.php?status=closed">Closed Posts</a> 
-        <a href="index.php?status=all">All Posts</a>
+    <nav class="type_selector">
+        <a href="index.php?status=open" id="ts_open">Open Posts</a> 
+        <a href="index.php?status=closed" id="ts_closed">Closed Posts</a> 
+        <a href="index.php?status=all" id="ts_all">All Posts</a>
     </nav>
 
     
-    <h2>Create a New Post</h2>
+    <h2>Create a New Project</h2>
+    <div class="post_creation">
     <form method="POST" action="forum.php">
         <input type="hidden" name="action" value="add_post">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br>
-        <label for="content">Content:</label><br>
-        <textarea id="content" name="content" rows="5" cols="40" required></textarea><br>
+        
+        <input type="text" id="title" name="title" placeholder="Title" required><br>
+        
+        <textarea id="content" name="content" placeholder="Content" rows="5" cols="40" required></textarea><br>
         <button type="submit">Add Post</button>
     </form>
+    </div>
 
     <h2>Posts</h2>
     <?php if (empty($posts)): ?>
