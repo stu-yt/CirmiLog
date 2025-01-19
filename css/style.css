@@ -1,117 +1,167 @@
+:root {
+    --body_background: #40553c;
+    --default_font:    #e5e5e5;
+    --comment_font:    #d1d1d1;
+    --color1:          #1a2939;
+    --color2:          #294058;
+    --color3:          #456990; 
+}
 
-
-@property --selected_color {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #e6889f;
-  }
-  
 
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
-    background-color: #40553c;
-    color: #e5e5e5
+    background-color: var(--body_background);
+    color: var(--default_font);
+    margin: 0;
+    padding: 0; 
+    
 }
 
 h1 {
+    margin-top: 0;
+    margin-bottom: 5%;
     text-align: center;
 }
 
-.type_selector a {
-     
-    border: none; 
-    color: #e5e5e5; 
-    padding: 2px; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-  
-    margin: 2px; 
-    cursor: pointer;
+.default_button_design {
+    color: var(--default_font);
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5% 2%; 
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 15px;
+    outline: none;
 }
 
 .type_selector {
     text-align: center;
+    margin-top: 5%;
+    
 }
 
-.default_button {
-    background-color: #9c8168;
+.type_selector .default_button_design {
+    text-align: center;
+    padding: 0.5% 2%;
+    
 }
 
-.selected_button {
-    background-color: #4e4034;
+.b1_b {
+    background-color: var(--color1);
+    border: var(--color2) 3px solid;
 }
+.b1_b:hover {
+    background-color: var(--color2);
+}
+.b1_b:focus{
+    background-color: var(--color2);  
+}
+
+.b2_b {
+    background-color: var(--color2);
+    border: var(--color1) 3px solid;
+}
+.b2_b:hover {
+    background-color: var(--color1);
+}
+.b2_b:focus{
+    background-color: var(--color1);  
+}
+
+
+
+.b3_b {
+    background-color: var(--color1);
+    border: var(--color2) 3px solid;
+}
+.b3_b:hover {
+    background-color: var(--color3); 
+}
+.b3_b:focus{
+    background-color: var(--color3);  
+}
+
+
+.c1_b {
+    background-color: var(--color1);
+    border: var(--color1) 3px solid;
+}
+.c1_b:active {
+    outline: none;
+}
+
+.c2_b {
+    background-color: var(--color2);
+    border: var(--color2) 3px solid;
+}
+.c2_b:active {
+    outline: none;
+}
+
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     border-radius: 10px;
-    background: #1a2939;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: var(--color1);
+    padding: 2%;
+    
 }
+
 
 .post, .post_creation {
     border-radius: 5px;
     padding: 2%;
     margin: 2% 0;
-    background: #294058;
+    background: var(--color2);
 }
 
-.post ul {
-    list-style-type: none;
+.post_creation h2 {
+    margin-top: 0;
+    text-align: center;
+    
 }
+
+
 
 .post li {
     
-    background-color: #1a2939;
-    
+    background-color: var(--color1);
+    color: #d1d1d1;
     margin: 5px 0;
-    padding: 5px;
+    padding: 1.2%;
     border-radius: 2px;
     width: fit-content;
     display: inline-table;
+    margin-left: 0;
+    list-style: none;
+    
+    
 }
 
-button {
-    background-color: #1a2939;
-    border: none;
-    color: #f9f9f9;
-    border-radius: 2px;
-    padding: 1% 2%;
-}
-button:hover {
-    background-color: #4e4034;
-}
 
-input {
+
+
+input, textarea {
     background-color: #294058;
     color: #e5e5e5;
     font-family: Arial, sans-serif;
-    border: 5px solid #1a2939; /* Keret vastagsága és színe */
-    padding: 10px; /* Belső térköz */
+    border: 5px solid #1a2939; 
+    padding: 10px; 
     border-radius: 5px;
     font-size: 15px;
     outline:none;
     width: 80%;
     margin-bottom: 1%;
-}
-textarea {
-    background-color: #294058;
-    color: #e5e5e5;
-    font-family: Arial, sans-serif;
-    border: 5px solid #1a2939; /* Keret vastagsága és színe */
-    padding: 10px; /* Belső térköz */
-    border-radius: 5px;
     resize: none;
-    outline:none;
-    font-size: 15px;
-    width: 80%;
-    
 }
 
+.post_controll {
+    
+    display: block; 
+    text-align: left;
+    
+}
 
 
 textarea:focus{
@@ -122,15 +172,13 @@ input:focus{
     background-color: #1a2939;
 }
 
-.post_creation form{
+form{
     
     display: grid;
     place-items: center;
 }
 
-form button{
-    
-    
-    
-    margin-top: 1%;
-}
+
+
+
+
